@@ -1,0 +1,15 @@
+{
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "plugins": ["react"],
+  "rules": {
+    "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
+    "no-unused-vars": "warn",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
+  }
+}
