@@ -211,7 +211,7 @@ const Index = () => {
           <Grid item md={4} className={classes.gridCenter}>
             <div className={classes.cha01Container}>
               <div>
-                <img src="/cha_01.png" width={287} height={381} alt="main_cha" />
+                <img src="/cha_01.png" width={287} height={381} alt="cha_01" />
               </div>
             </div>
           </Grid>
@@ -254,7 +254,7 @@ const Index = () => {
           <Grid item md={4} className={classes.gridCenter}>
             <div className={classes.cha02Container}>
               <div>
-                <img src="/cha_02.png" width={287} height={345} alt="main_cha" />
+                <img src="/cha_02.png" width={287} height={345} alt="cha_02" />
               </div>
             </div>
           </Grid>
@@ -294,7 +294,7 @@ const Index = () => {
                       }}>
                       <div className={classes.cha03Container}>
                         <div>
-                          <img src="/cha_031.png" width={200} height={160} alt="main_cha" />
+                          <img src="/cha_031.png" width={200} height={160} alt="cha_031" />
                         </div>
                       </div>
                       <Typography
@@ -333,7 +333,7 @@ const Index = () => {
                       }}>
                       <div className={classes.cha03Container}>
                         <div>
-                          <img src="/cha_032.png" width={230} height={146} alt="main_cha" />
+                          <img src="/cha_032.png" width={230} height={146} alt="cha_032" />
                         </div>
                       </div>
                       <Typography
