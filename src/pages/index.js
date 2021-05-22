@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import { Link } from 'react-scroll'
+
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
@@ -6,9 +8,9 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
-import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import Avatar from '@material-ui/core/Avatar'
+import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -21,7 +23,7 @@ const useStyles = makeStyles((theme) => {
     },
     landing: {
       backgroundColor: theme.palette.primary.main,
-      height: 600,
+      height: 575,
       position: 'relative',
       overflowX: 'hidden',
       '& > .curve': {
@@ -153,42 +155,40 @@ const Index = () => {
   const menus = [
     {
       label: 'Home',
-      link: '/'
+      to: 'home'
     },
     {
       label: 'About Us',
-      link: '/#aboutus'
+      to: 'about_saferad'
     },
     {
       label: 'Tokenomics',
-      link: ''
+      to: 'tokenomics'
     },
     {
       label: 'Roadmap',
-      link: ''
+      to: 'roadmaps'
     },
     {
       label: 'FAQ',
-      link: ''
+      to: 'faq'
     }
   ]
 
   return (
     <Container maxWidth={false} disableGutters>
-      <AppBar position="static" color="default">
+      <AppBar position="sticky" color="default">
         <Toolbar className={classes.toobar}>
           <Image src="/logo.png" width={120} height={70} alt="logo" />
           {menus.map((menu) => (
-            <Button
-              className={classes.menu}
-              key={menu.label}
-              onClick={() => scroll({ id: menu.link })}>
-              {menu.label}
-            </Button>
+            <Link spy={true} smooth={true} to={menu.to} key={menu.label} offset={-150}>
+              <Button className={classes.menu}>{menu.label}</Button>
+            </Link>
           ))}
         </Toolbar>
       </AppBar>
-      <Box className={classes.landing} py={8}>
+
+      <Box className={classes.landing} id="home">
         <Grid container justify="center" alignItems="center">
           <Grid item md={5} className={classes.gridCenter}>
             <img src="/title_main.svg" height="80px" style={{ alignSelf: 'flex-start', flex: 1 }} />
@@ -201,16 +201,12 @@ const Index = () => {
           </Grid>
           <Grid item md={5} className={classes.gridCenter} style={{ alignItems: 'center' }}>
             <img src="/main_cha.svg" width={430} height={430} alt="main_cha" />
-            {/* <div className={classes.mainChaContainer}>
-              <div>
-                <img src="/main_cha.png" width={465} height={465} alt="main_cha" />
-              </div>
-            </div> */}
           </Grid>
         </Grid>
         <div className="curve" />
       </Box>
-      <Box py={8}>
+
+      <Box id="about_saferad">
         <Grid container justify="center" alignItems="center">
           <Grid item md={4} className={classes.gridCenter}>
             <div className={classes.cha01Container}>
@@ -224,7 +220,6 @@ const Index = () => {
               src="/title_01.svg"
               height="47px"
               style={{ alignSelf: 'flex-start', marginBottom: '16px' }}
-              id="aboutus"
             />
             <Typography variant="body1" style={{ fontWeight: 300 }}>
               <span style={{ fontWeight: '500' }}>SafeRad</span> is community driven token launch on
@@ -239,7 +234,7 @@ const Index = () => {
         </Grid>
       </Box>
 
-      <Box py={1}>
+      <Box>
         <Grid container justify="center" alignItems="center">
           <Grid item md={6} className={classes.gridCenter}>
             <img
@@ -266,7 +261,7 @@ const Index = () => {
         </Grid>
       </Box>
 
-      <Box py={4}>
+      <Box py={8} id="tokenomics">
         <Grid container justify="center" alignItems="center">
           <Grid item md={10} className={classes.gridCenter}>
             <Box
@@ -372,7 +367,7 @@ const Index = () => {
         </Grid>
       </Box>
 
-      <Box py={1}>
+      <Box id="roadmaps">
         <Grid container justify="center" alignItems="center">
           <Grid item md={10} className={classes.gridCenter}>
             <img
@@ -385,7 +380,7 @@ const Index = () => {
         </Grid>
       </Box>
 
-      <Box py={1} className={classes.footer}>
+      <Box className={classes.footer}>
         <div className="curve" />
         <div
           style={{
@@ -396,11 +391,15 @@ const Index = () => {
           }}>
           <Image src="/logo.png" width={120} height={70} alt="logo" />
           <div className={classes.iconGroup}>
-            <Avatar alt="telegram" src="/telegram.svg" />
-            <Avatar alt="github" src="/github.svg" />
-            <Avatar alt="medium" src="/medium.svg" />
-            <Avatar alt="twitter" src="/twitter.svg" />
-            <Avatar alt="reddit" src="/reddit.svg" />
+            <a href="https://t.me/saferad" target="_blank">
+              <Avatar alt="telegram" src="/telegram.webp" />
+            </a>
+            <a href="https://twitter.com/saferadofficial" target="_blank">
+              <Avatar alt="twitter" src="/twitter.webp" />
+            </a>
+            <a href="https://medium.com/saferad-official" target="_blank">
+              <Avatar alt="medium" src="/medium.webp" />
+            </a>
           </div>
           <Typography
             variant="body1"
